@@ -1,0 +1,29 @@
+image: python:3.12-slim
+
+pipelines:
+  default:
+    - step:
+        name: Test and package check
+        caches:
+          - pip
+        script:
+          - apt-get update && apt-get install -y libraw-dev build-essential
+          - python -m pip install -e ".[dev]"
+          - pytest
+          - dropraw doctor
+          - dropraw --version
+          - python -m build
+          - twine check dist/*
+  tags:
+    "v*":
+      - step:
+          name: Build release package
+          caches:
+            - pip
+          script:
+            - apt-get update && apt-get install -y libraw-dev build-essential
+            - python -m pip install build twine
+            - python -m build
+            - twine check dist/*
+          artifacts:
+            - dist/**

@@ -1,0 +1,4 @@
+source: "https://drive.google.com/drive/folders/FOLDER_ID"
+provider: google-drive
+output_dir: ./web_export
+preset: web

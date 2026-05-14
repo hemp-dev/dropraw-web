@@ -1,0 +1,17 @@
+name: tests
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  tests:
+    runs-on: docker
+    container:
+      image: python:3.12-slim
+    steps:
+      - uses: actions/checkout@v4
+      - run: apt-get update && apt-get install -y libraw-dev build-essential
+      - run: python -m pip install -e ".[dev]"
+      - run: pytest
+      - run: dropraw doctor

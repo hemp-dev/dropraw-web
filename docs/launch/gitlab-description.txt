@@ -1,0 +1,1 @@
+Open-source CLI and local UI for converting large RAW photo folders into web-ready WebP/AVIF/JPEG/PNG assets, with retry, resume, reports, and multi-cloud providers.

@@ -1,0 +1,8 @@
+output_dir: web_export
+preset: web
+overwrite: false
+resume: true
+list_retries: 8
+download_retries: 8
+retry_delay: 3.0
+cooldown: 0.3

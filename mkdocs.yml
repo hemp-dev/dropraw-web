@@ -1,0 +1,59 @@
+site_name: DropRaw Web
+site_description: Multi-cloud RAW to web image conversion CLI and local UI
+repo_url: https://github.com/hemp-dev/dropraw-web
+theme:
+  name: material
+  features:
+    - navigation.sections
+    - navigation.indexes
+    - content.code.copy
+nav:
+  - Home: index.md
+  - English:
+      - Overview: en/index.md
+      - Installation: en/installation.md
+      - Quick Start: en/quick-start.md
+      - Dropbox: en/dropbox.md
+      - Google Drive: en/google-drive.md
+      - S3/R2: en/s3-r2.md
+      - UI: en/ui.md
+      - Retry & Resume: en/retry-resume.md
+      - Troubleshooting: en/troubleshooting.md
+      - Privacy: en/privacy.md
+      - Mirrors: en/mirrors.md
+  - Russian:
+      - Обзор: ru/index.md
+      - Установка: ru/installation.md
+      - Quick Start: ru/quick-start.md
+      - Dropbox: ru/dropbox.md
+      - Google Drive: ru/google-drive.md
+      - S3/R2: ru/s3-r2.md
+      - UI: ru/ui.md
+      - Retry & Resume: ru/retry-resume.md
+      - Troubleshooting: ru/troubleshooting.md
+      - Privacy: ru/privacy.md
+      - Mirrors: ru/mirrors.md
+      - Российские платформы: ru/russian-platforms.md
+  - Spanish:
+      - Overview: es/index.md
+      - Installation: es/installation.md
+      - Quick Start: es/quick-start.md
+  - Chinese:
+      - Overview: zh/index.md
+      - Installation: zh/installation.md
+      - Quick Start: zh/quick-start.md
+  - German:
+      - Overview: de/index.md
+      - Installation: de/installation.md
+      - Quick Start: de/quick-start.md
+  - French:
+      - Overview: fr/index.md
+      - Installation: fr/installation.md
+      - Quick Start: fr/quick-start.md
+  - Release Notes:
+      - v0.1.0: release-notes/v0.1.0.md
+markdown_extensions:
+  - admonition
+  - toc:
+      permalink: true
+  - fenced_code

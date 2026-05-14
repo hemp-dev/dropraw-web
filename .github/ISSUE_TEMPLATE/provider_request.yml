@@ -1,0 +1,21 @@
+name: Provider request
+description: Request a new storage provider.
+title: "[Provider]: "
+labels: ["provider"]
+body:
+  - type: input
+    id: provider
+    attributes:
+      label: Provider name
+  - type: textarea
+    id: api
+    attributes:
+      label: API/listing support
+  - type: textarea
+    id: auth
+    attributes:
+      label: Authentication model
+  - type: textarea
+    id: notes
+    attributes:
+      label: Retry/resume considerations

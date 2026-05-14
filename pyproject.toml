@@ -1,0 +1,66 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dropraw-web"
+version = "0.1.0"
+description = "Open-source CLI and local UI for converting large RAW photo folders from Dropbox, Google Drive, S3/R2, and local folders into web-ready images."
+readme = "README.md"
+requires-python = ">=3.11,<3.14"
+license = "MIT"
+authors = [{ name = "DropRaw Web contributors" }]
+keywords = ["raw", "webp", "avif", "jpeg", "dropbox", "google-drive", "s3", "r2", "photography", "cli"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Environment :: Console",
+  "Environment :: Web Environment",
+  "Intended Audience :: Developers",
+  "Intended Audience :: End Users/Desktop",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Multimedia :: Graphics :: Graphics Conversion",
+  "Topic :: Utilities",
+]
+dependencies = [
+  "typer>=0.12",
+  "rich>=13.7",
+  "pydantic>=2.6",
+  "pyyaml>=6.0",
+  "python-dotenv>=1.0",
+  "rawpy>=0.19",
+  "pillow>=10.0",
+  "numpy>=1.26",
+  "dropbox>=12.0.2",
+  "requests>=2.31",
+  "urllib3>=2.0",
+  "fastapi>=0.115",
+  "uvicorn>=0.30",
+  "boto3>=1.34",
+  "google-api-python-client>=2.120",
+  "google-auth>=2.28",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=8.0", "httpx>=0.27"]
+s3 = ["boto3>=1.34"]
+google = ["google-api-python-client>=2.120", "google-auth>=2.28", "google-auth-oauthlib>=1.2"]
+ui = ["fastapi>=0.115", "uvicorn>=0.30"]
+cloud = ["boto3>=1.34", "google-api-python-client>=2.120", "google-auth>=2.28", "google-auth-oauthlib>=1.2"]
+dev = ["pytest>=8.0", "httpx>=0.27", "ruff>=0.6", "mypy>=1.10", "build>=1.2", "twine>=5.0", "mkdocs>=1.6", "mkdocs-material>=9.5"]
+all = ["boto3>=1.34", "google-api-python-client>=2.120", "google-auth>=2.28", "google-auth-oauthlib>=1.2", "fastapi>=0.115", "uvicorn>=0.30"]
+
+[project.scripts]
+dropraw = "dropraw_web.cli:app"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+dropraw_web = ["configs/*.yaml", "ui/dist/**/*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

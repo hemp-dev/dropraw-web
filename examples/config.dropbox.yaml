@@ -1,0 +1,8 @@
+source: "https://www.dropbox.com/scl/fo/..."
+provider: dropbox
+output_dir: ./web_export
+preset: web
+list_retries: 10
+download_retries: 10
+retry_delay: 3
+cooldown: 1

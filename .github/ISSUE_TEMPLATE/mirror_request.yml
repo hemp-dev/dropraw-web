@@ -1,0 +1,34 @@
+name: Mirror request
+description: Request or document a Git mirror target.
+title: "[Mirror]: "
+labels: ["mirror"]
+body:
+  - type: input
+    id: platform
+    attributes:
+      label: Platform name
+  - type: dropdown
+    id: visibility
+    attributes:
+      label: Public or private?
+      options: ["public", "private", "self-hosted", "unknown"]
+  - type: input
+    id: remote
+    attributes:
+      label: Git remote URL format
+  - type: textarea
+    id: ci
+    attributes:
+      label: CI support
+  - type: textarea
+    id: releases
+    attributes:
+      label: Release assets support
+  - type: textarea
+    id: registry
+    attributes:
+      label: Package/container registry support
+  - type: textarea
+    id: docs
+    attributes:
+      label: Docs needed

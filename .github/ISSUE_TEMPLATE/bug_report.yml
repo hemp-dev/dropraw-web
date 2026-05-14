@@ -1,0 +1,46 @@
+name: Bug report
+description: Report a reproducible DropRaw Web bug.
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: input
+    id: os
+    attributes:
+      label: OS
+  - type: input
+    id: python
+    attributes:
+      label: Python version
+  - type: input
+    id: version
+    attributes:
+      label: DropRaw version
+  - type: dropdown
+    id: provider
+    attributes:
+      label: Provider
+      options: ["local", "dropbox", "google-drive", "s3", "r2", "minio", "other"]
+  - type: input
+    id: source
+    attributes:
+      label: Source type
+  - type: textarea
+    id: command
+    attributes:
+      label: Command
+      description: Remove tokens and private URLs.
+  - type: textarea
+    id: error
+    attributes:
+      label: Error log
+      description: Remove secrets before posting.
+  - type: dropdown
+    id: retry
+    attributes:
+      label: Was retry enabled?
+      options: ["yes", "no", "not sure"]
+  - type: dropdown
+    id: failed_log
+    attributes:
+      label: Does dropraw_failed.tsv exist?
+      options: ["yes", "no", "not sure"]

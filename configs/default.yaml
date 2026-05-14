@@ -1,0 +1,8 @@
+list_retries: 8
+download_retries: 8
+retry_delay: 3
+cooldown: 0.3
+download_workers: 2
+convert_workers: 2
+metadata_mode: strip
+

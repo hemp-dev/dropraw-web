@@ -1,0 +1,43 @@
+web:
+  formats: ["webp", "jpg"]
+  max_size: 2560
+  quality: 88
+  responsive_sizes: []
+  metadata_mode: "strip"
+
+preview:
+  formats: ["webp"]
+  max_size: 1600
+  quality: 82
+  responsive_sizes: []
+  half_size: true
+  metadata_mode: "strip"
+
+retina:
+  formats: ["webp", "jpg"]
+  max_size: 0
+  quality: 86
+  responsive_sizes: [1200, 1800, 2560, 3840]
+  metadata_mode: "strip"
+
+lossless_web:
+  formats: ["webp", "png"]
+  max_size: 0
+  quality: 100
+  webp_lossless: true
+  png_compress_level: 9
+  metadata_mode: "strip"
+
+tilda:
+  formats: ["webp", "jpg"]
+  max_size: 0
+  quality: 86
+  responsive_sizes: [1200, 1920, 2560]
+  metadata_mode: "strip"
+
+wordpress:
+  formats: ["webp", "jpg"]
+  max_size: 0
+  quality: 86
+  responsive_sizes: [768, 1200, 1536, 2048]
+  metadata_mode: "strip"
