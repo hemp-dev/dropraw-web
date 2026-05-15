@@ -1,0 +1,29 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "DropRaw Web",
+  "applicationCategory": "MultimediaApplication",
+  "operatingSystem": "Linux, macOS, Windows",
+  "softwareVersion": "0.1.0",
+  "description": "Open-source CLI and local UI for converting large RAW photo folders from Dropbox, Google Drive, S3/R2, and local folders into optimized WebP, AVIF, JPEG, and PNG assets without huge ZIP downloads.",
+  "url": "https://github.com/hemp-dev/dropraw-web",
+  "downloadUrl": "https://github.com/hemp-dev/dropraw-web/releases/tag/v0.1.0",
+  "codeRepository": "https://github.com/hemp-dev/dropraw-web",
+  "license": "https://opensource.org/license/mit",
+  "programmingLanguage": "Python",
+  "runtimePlatform": "Python 3.11, Python 3.12",
+  "keywords": [
+    "RAW photo converter",
+    "RAW to WebP",
+    "RAW to AVIF",
+    "Dropbox RAW converter",
+    "Google Drive RAW converter",
+    "S3 image converter",
+    "batch image conversion"
+  ],
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+}

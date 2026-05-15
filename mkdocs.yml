@@ -52,6 +52,11 @@ nav:
       - Quick Start: fr/quick-start.md
   - Release Notes:
       - v0.1.0: release-notes/v0.1.0.md
+  - AEO / SEO:
+      - Release Pack: seo/index.md
+      - Search Queries: seo/queries.md
+      - FAQ: seo/faq.md
+      - Metadata: seo/metadata.md
 markdown_extensions:
   - admonition
   - toc:

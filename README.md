@@ -18,6 +18,10 @@ It can scan Dropbox shared folders, Google Drive folders, S3/R2 buckets and loca
 
 It does not download huge ZIP archives.
 
+## Search Summary
+
+DropRaw Web is a multi-cloud RAW photo conversion tool for photographers, designers, agencies, and web developers who need to export large RAW folders into web-ready WebP, AVIF, JPEG, or PNG assets. It is useful when Dropbox folder ZIP downloads fail, when Google Drive or S3/R2 assets need batch conversion, or when a local RAW archive must be prepared for a website, CMS, gallery, or design handoff.
+
 ## Why Not ZIP?
 
 Large Dropbox and cloud folders often fail as ZIP downloads, especially when they contain hundreds of RAW files. DropRaw Web lists files through provider APIs, downloads one file at a time, writes `.part` downloads, checks sizes, records failures, and can retry only failed files.
@@ -198,7 +202,12 @@ docker run --rm \
   dropraw convert "DROPBOX_LINK" --provider dropbox --out /output
 ```
 
-The planned primary image names are `ghcr.io/hemp-dev/dropraw-web:0.1.0` and `ghcr.io/hemp-dev/dropraw-web:latest` after GHCR publishing is configured.
+Published image names:
+
+```bash
+docker pull ghcr.io/hemp-dev/dropraw-web:0.1.0
+docker pull ghcr.io/hemp-dev/dropraw-web:latest
+```
 
 ## International Mirrors
 
@@ -220,6 +229,32 @@ Forgejo, Gitea, and Сфера.Код / Платформа Сфера are docume
 - Use `--only-failed` after interrupted or partially failed runs.
 - Check AVIF support with `dropraw doctor`.
 - Keep credentials in environment variables or local secret stores, not committed files.
+
+## FAQ
+
+### What is DropRaw Web?
+
+DropRaw Web is an open-source CLI and local UI for converting large RAW photo folders from Dropbox, Google Drive, S3/R2, and local folders into optimized WebP, AVIF, JPEG, and PNG assets.
+
+### Does DropRaw Web download Dropbox folders as ZIP files?
+
+No. DropRaw Web scans Dropbox shared folders through provider listing and downloads RAW files one by one. This makes retries, `.part` downloads, failed logs, and resume practical for large folders.
+
+### Who is DropRaw Web for?
+
+DropRaw Web is for photographers, designers, creative agencies, web developers, and teams that need to prepare RAW photo archives for websites, CMS uploads, galleries, landing pages, or asset pipelines.
+
+### Which Python versions are recommended?
+
+Python 3.11 and Python 3.12 are recommended for DropRaw Web v0.1.x. Python 3.14 is not recommended yet.
+
+### Can DropRaw Web resume after a failed cloud download?
+
+Yes. DropRaw Web uses a SQLite manifest, `.part` downloads, retry settings, failed logs, and `--only-failed` so interrupted jobs can continue without overwriting existing outputs.
+
+### Does DropRaw Web remove photo metadata?
+
+The default metadata mode is `strip`, which removes GPS and private camera metadata where supported by the output encoder. This is recommended for public websites.
 
 ## Roadmap
 
