@@ -25,8 +25,9 @@ jobs:
         with:
           images: ghcr.io/hemp-dev/dropraw-web
           tags: |
+            type=semver,pattern={{version}}
             type=ref,event=tag
-            type=raw,value=latest,enable={{is_default_branch}}
+            type=raw,value=latest,enable=${{ startsWith(github.ref, 'refs/tags/v') }}
       - uses: docker/build-push-action@v6
         with:
           context: .
