@@ -1,0 +1,5 @@
+source: ./RAW
+provider: local
+output_dir: ./web_export
+preset: web
+metadata_mode: strip

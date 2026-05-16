@@ -1,0 +1,17 @@
+name: Documentation
+description: Report a docs issue.
+title: "[Docs]: "
+labels: ["documentation"]
+body:
+  - type: input
+    id: page
+    attributes:
+      label: Page or file
+  - type: textarea
+    id: issue
+    attributes:
+      label: Issue
+  - type: textarea
+    id: fix
+    attributes:
+      label: Suggested fix

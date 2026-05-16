@@ -1,0 +1,38 @@
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is RawBridge?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "RawBridge is an open-source CLI and local UI for converting large RAW photo folders from Dropbox, Google Drive, S3/R2, and local folders into optimized WebP, AVIF, JPEG, and PNG assets."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does RawBridge download Dropbox folders as ZIP files?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. RawBridge avoids huge Dropbox ZIP downloads by listing shared folders and downloading RAW files one by one with retry, .part downloads, failed logs, and resume support."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which sources does RawBridge support?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "RawBridge supports local folders, Dropbox shared folders, Google Drive folders, AWS S3, Cloudflare R2, MinIO, and S3-compatible storage."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can RawBridge resume failed jobs?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. RawBridge stores conversion state in a SQLite manifest, uses .part downloads, writes rawbridge_failed.tsv, and supports --only-failed to retry failed files without overwriting existing outputs."
+      }
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+stages:
+  - lint
+  - test
+  - build
+  - package
+  - deploy_docs
+
+variables:
+  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
+
+python:3.11:
+  stage: test
+  image: python:3.11-slim
+  before_script:
+    - apt-get update && apt-get install -y libraw-dev build-essential
+    - python -m pip install -e ".[dev]"
+  script:
+    - pytest
+    - rawbridge doctor
+    - rawbridge --version
+
+python:3.12:
+  stage: test
+  image: python:3.12-slim
+  before_script:
+    - apt-get update && apt-get install -y libraw-dev build-essential
+    - python -m pip install -e ".[dev]"
+  script:
+    - pytest
+    - rawbridge doctor
+    - rawbridge --version
+
+package:
+  stage: package
+  image: python:3.12-slim
+  before_script:
+    - apt-get update && apt-get install -y libraw-dev build-essential
+    - python -m pip install build twine
+  script:
+    - python -m build
+    - twine check dist/*
+  artifacts:
+    paths:
+      - dist/
+
+pages:
+  stage: deploy_docs
+  image: python:3.12-slim
+  script:
+    - python -m pip install mkdocs mkdocs-material
+    - mkdocs build --strict --site-dir public
+  artifacts:
+    paths:
+      - public
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH

@@ -1,0 +1,1 @@
+Open-source CLI + local UI for converting large RAW photo folders from Dropbox, Google Drive, S3/R2 and local folders into optimized WebP/AVIF/JPEG assets — without huge ZIP downloads.

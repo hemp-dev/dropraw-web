@@ -1,0 +1,1 @@
+Open-source CLI + локальный UI для надежной конвертации RAW-фотоархивов из Dropbox, Google Drive, S3/R2 и локальных папок в web-ready изображения.

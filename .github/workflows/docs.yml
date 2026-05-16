@@ -1,0 +1,46 @@
+name: docs
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - name: Install docs dependencies
+        run: python -m pip install mkdocs mkdocs-material
+      - name: Build docs
+        run: mkdocs build --strict
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mkdocs-site
+          path: site
+
+  pages:
+    if: ${{ vars.ENABLE_GITHUB_PAGES == 'true' }}
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: mkdocs-site
+          path: site
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+      - id: deployment
+        uses: actions/deploy-pages@v4

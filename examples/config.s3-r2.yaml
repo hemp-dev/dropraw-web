@@ -1,0 +1,5 @@
+source: s3://bucket/raw
+provider: s3
+output_dir: ./web_export
+preset: web
+endpoint_url: https://ACCOUNT_ID.r2.cloudflarestorage.com

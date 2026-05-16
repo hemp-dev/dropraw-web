@@ -1,0 +1,1 @@
+FOSS CLI + local UI for converting large RAW photo folders into web-ready assets without huge ZIP downloads.

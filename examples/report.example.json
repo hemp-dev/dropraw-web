@@ -1,0 +1,9 @@
+{
+  "job_id": "example",
+  "provider": "local",
+  "total_raw_files": 1,
+  "processed": 1,
+  "skipped": 0,
+  "failed": 0,
+  "output_files_count": 2
+}
