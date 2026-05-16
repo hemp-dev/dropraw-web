@@ -1,5 +1,5 @@
-from dropraw_web.models import ConversionPreset, RemoteFile
-from dropraw_web.pipeline.manifest import Manifest
+from rawbridge.models import ConversionPreset, RemoteFile
+from rawbridge.pipeline.manifest import Manifest
 
 
 def test_overwrite_disables_skip(tmp_path):
@@ -29,13 +29,13 @@ def test_changed_fingerprint_reprocesses(tmp_path):
 
 
 def _asset(out):
-    from dropraw_web.models import AssetResult
+    from rawbridge.models import AssetResult
 
     return AssetResult(source_path="a.NEF", output_path=str(out), format="webp", status="done")
 
 
 def _job_config(tmp_path):
-    from dropraw_web.models import JobConfig
+    from rawbridge.models import JobConfig
 
     return JobConfig(source=str(tmp_path), output_dir=tmp_path)
 

@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from fastapi.testclient import TestClient
 
-from dropraw_web.ui.api import create_app
+from rawbridge.ui.api import create_app
 
 
 def test_api_health_and_providers():
@@ -19,7 +19,7 @@ def test_api_health_and_providers():
 def test_api_scan_local(tmp_path, monkeypatch):
     (tmp_path / "a.NEF").write_bytes(b"raw")
     (tmp_path / "b.jpg").write_bytes(b"skip")
-    monkeypatch.setenv("DROPRAW_UI_ALLOWED_SOURCE_ROOTS", str(tmp_path))
+    monkeypatch.setenv("RAWBRIDGE_UI_ALLOWED_SOURCE_ROOTS", str(tmp_path))
     client = TestClient(create_app())
 
     response = client.post(
@@ -34,7 +34,7 @@ def test_api_scan_local(tmp_path, monkeypatch):
 
 
 def test_api_job_schema_accepts_retry_settings(tmp_path, monkeypatch):
-    from dropraw_web.ui import job_runner
+    from rawbridge.ui import job_runner
 
     def fake_create_job(request):
         assert request.list_retries == 2
@@ -43,8 +43,8 @@ def test_api_job_schema_accepts_retry_settings(tmp_path, monkeypatch):
         return "job_test"
 
     monkeypatch.setattr(job_runner.runner, "create_job", fake_create_job)
-    monkeypatch.setenv("DROPRAW_UI_ALLOWED_SOURCE_ROOTS", str(tmp_path))
-    monkeypatch.setenv("DROPRAW_UI_ALLOWED_OUTPUT_ROOTS", str(tmp_path))
+    monkeypatch.setenv("RAWBRIDGE_UI_ALLOWED_SOURCE_ROOTS", str(tmp_path))
+    monkeypatch.setenv("RAWBRIDGE_UI_ALLOWED_OUTPUT_ROOTS", str(tmp_path))
     client = TestClient(create_app())
 
     response = client.post(
@@ -75,20 +75,20 @@ def test_failed_files_endpoint_for_unknown_job():
 
 
 def test_api_requires_ui_token_when_configured(monkeypatch):
-    monkeypatch.setenv("DROPRAW_UI_TOKEN", "secret")
+    monkeypatch.setenv("RAWBRIDGE_UI_TOKEN", "secret")
     client = TestClient(create_app())
 
     assert client.get("/api/health").status_code == 401
-    assert client.get("/api/health", headers={"x-dropraw-ui-token": "secret"}).status_code == 200
+    assert client.get("/api/health", headers={"x-rawbridge-ui-token": "secret"}).status_code == 200
 
     response = client.get("/api/providers?ui_token=secret")
     assert response.status_code == 200
-    assert "dropraw_ui_token" in response.headers.get("set-cookie", "")
+    assert "rawbridge_ui_token" in response.headers.get("set-cookie", "")
     assert client.get("/api/providers").status_code == 200
 
 
 def test_api_rejects_local_paths_outside_allowed_roots(tmp_path, monkeypatch):
-    monkeypatch.setenv("DROPRAW_UI_ALLOWED_SOURCE_ROOTS", str(tmp_path))
+    monkeypatch.setenv("RAWBRIDGE_UI_ALLOWED_SOURCE_ROOTS", str(tmp_path))
     client = TestClient(create_app())
 
     response = client.post(

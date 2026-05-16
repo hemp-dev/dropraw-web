@@ -1,14 +1,14 @@
 # Installation
 
 ```bash
-pip install dropraw-web
+pip install rawbridge
 ```
 
 Development install:
 
 ```bash
-git clone https://github.com/hemp-dev/dropraw-web.git
-cd dropraw-web
+git clone https://github.com/hemp-dev/rawbridge.git
+cd rawbridge
 python3.12 -m venv .venv
 source .venv/bin/activate
 pip install -e ".[dev]"

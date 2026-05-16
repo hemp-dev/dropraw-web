@@ -1,36 +1,47 @@
-# DropRaw Web
+# RawBridge
 
 English | [Русский](README.ru.md) | [Español](README.es.md) | [中文](README.zh.md) | [Deutsch](README.de.md) | [Français](README.fr.md)
 
-Convert large RAW photo folders from Dropbox, Google Drive, S3/R2 and local folders into optimized WebP/AVIF/JPEG assets without downloading huge ZIP archives.
+Local-first RAW archive pipeline for turning cloud folders into web-ready images — without broken ZIP downloads.
 
 <!-- Badges are intentionally conservative until public services are connected.
 TODO: tests badge after GitHub repo is public.
-TODO: PyPI badge after dropraw-web is published.
+TODO: PyPI badge after rawbridge is published.
 TODO: GHCR/Docker badge after container image is published.
 -->
 
 ## What It Does
 
-DropRaw Web is an open-source CLI and local UI for turning large RAW photo folders into optimized web-ready image assets.
+RawBridge is an open-source CLI and local UI for turning large RAW photo folders into optimized web-ready image assets.
 
-It can scan Dropbox shared folders, Google Drive folders, S3/R2 buckets and local directories, download RAW files one by one, convert them into WebP/AVIF/JPEG/PNG, and resume safely after network failures.
+It processes large RAW photo folders from Dropbox, Google Drive, S3/R2, MinIO, or local directories one file at a time, with retries, resumable state, privacy-safe metadata handling, and ready-to-use WebP/AVIF/JPEG/PNG outputs.
 
-It does not download huge ZIP archives.
+It is built for photographers, designers, agencies, developers, and content teams who need reliable web assets from heavy RAW archives without manually downloading huge ZIP files.
+
+## Why RawBridge?
+
+Cloud photo folders often break when exported as huge ZIP archives. RawBridge avoids that fragile workflow.
+
+Instead of downloading everything at once, it:
+
+- scans the source folder;
+- downloads files one by one;
+- keeps a resumable SQLite manifest;
+- retries transient network errors;
+- writes failed items to a log;
+- converts RAW files to web-ready formats;
+- optionally strips sensitive EXIF/GPS metadata;
+- generates outputs ready for websites, CMS, previews, and catalogs.
 
 ## Search Summary
 
-DropRaw Web is a multi-cloud RAW photo conversion tool for photographers, designers, agencies, and web developers who need to export large RAW folders into web-ready WebP, AVIF, JPEG, or PNG assets. It is useful when Dropbox folder ZIP downloads fail, when Google Drive or S3/R2 assets need batch conversion, or when a local RAW archive must be prepared for a website, CMS, gallery, or design handoff.
-
-## Why Not ZIP?
-
-Large Dropbox and cloud folders often fail as ZIP downloads, especially when they contain hundreds of RAW files. DropRaw Web lists files through provider APIs, downloads one file at a time, writes `.part` downloads, checks sizes, records failures, and can retry only failed files.
+RawBridge is a multi-cloud RAW photo conversion tool for photographers, designers, agencies, and web developers who need to export large RAW folders into web-ready WebP, AVIF, JPEG, or PNG assets. It is useful when Dropbox folder ZIP downloads fail, when Google Drive or S3/R2 assets need batch conversion, or when a local RAW archive must be prepared for a website, CMS, gallery, or design handoff.
 
 ## Tested On A Real Dropbox RAW Folder
 
-DropRaw Web was tested on a real Dropbox shared folder with 816 Nikon NEF files.
+RawBridge was tested on a real Dropbox shared folder with 816 Nikon NEF files.
 
-Large Dropbox folders may fail during listing or download due to transient network, SSL, or SDK errors. DropRaw Web handles this with listing retries, download retries, exponential backoff, `.part` downloads, size checks, a failed log, retry only failed, and resume without overwriting existing outputs.
+Large Dropbox folders may fail during listing or download due to transient network, SSL, or SDK errors. RawBridge handles this with listing retries, download retries, exponential backoff, `.part` downloads, size checks, a failed log, retry only failed, and resume without overwriting existing outputs.
 
 The recoverable error `ConnectionError(ProtocolError('Connection aborted.', OSError(22, 'Invalid argument')))` is treated as a transient network error. A file that succeeds after retry is counted as processed, not failed.
 
@@ -73,14 +84,14 @@ Recommended Python versions: 3.11 and 3.12.
 Python 3.14 is not recommended for this release because imaging and networking dependencies may lag behind it.
 
 ```bash
-pip install dropraw-web
+pip install rawbridge
 ```
 
 Development install:
 
 ```bash
-git clone https://github.com/hemp-dev/dropraw-web.git
-cd dropraw-web
+git clone https://github.com/hemp-dev/rawbridge.git
+cd rawbridge
 python3.12 -m venv .venv
 source .venv/bin/activate
 pip install -e ".[dev]"
@@ -89,16 +100,16 @@ pip install -e ".[dev]"
 ## Quick Start
 
 ```bash
-dropraw --version
-dropraw doctor
-dropraw scan ./RAW
-dropraw convert ./RAW --out ./web_export --preset web
+rawbridge --version
+rawbridge doctor
+rawbridge scan ./RAW
+rawbridge convert ./RAW --out ./web_export --preset web
 ```
 
 ## Dropbox Example
 
 ```bash
-dropraw convert "https://www.dropbox.com/scl/fo/..." \
+rawbridge convert "https://www.dropbox.com/scl/fo/..." \
   --provider dropbox \
   --out ./web_export \
   --preset web \
@@ -111,16 +122,16 @@ dropraw convert "https://www.dropbox.com/scl/fo/..." \
 Retry only failed files:
 
 ```bash
-dropraw convert "https://www.dropbox.com/scl/fo/..." \
+rawbridge convert "https://www.dropbox.com/scl/fo/..." \
   --provider dropbox \
   --out ./web_export \
-  --only-failed ./web_export/dropraw_failed.tsv
+  --only-failed ./web_export/rawbridge_failed.tsv
 ```
 
 ## Google Drive Example
 
 ```bash
-dropraw convert "https://drive.google.com/drive/folders/FOLDER_ID" \
+rawbridge convert "https://drive.google.com/drive/folders/FOLDER_ID" \
   --provider google-drive \
   --out ./web_export \
   --preset web
@@ -131,7 +142,7 @@ Google Drive may require a service account or API key depending on folder visibi
 ## S3/R2 Example
 
 ```bash
-dropraw convert s3://bucket/raw \
+rawbridge convert s3://bucket/raw \
   --provider s3 \
   --out ./web_export \
   --preset web
@@ -140,7 +151,7 @@ dropraw convert s3://bucket/raw \
 Cloudflare R2:
 
 ```bash
-dropraw convert r2://bucket/raw \
+rawbridge convert r2://bucket/raw \
   --endpoint-url https://ACCOUNT_ID.r2.cloudflarestorage.com \
   --out ./web_export \
   --preset web
@@ -149,23 +160,23 @@ dropraw convert r2://bucket/raw \
 ## Local Folder Example
 
 ```bash
-dropraw scan ./RAW
-dropraw convert ./RAW --provider local --out ./web_export --preset web
+rawbridge scan ./RAW
+rawbridge convert ./RAW --provider local --out ./web_export --preset web
 ```
 
 ## UI Mode
 
 ```bash
-dropraw ui
+rawbridge ui
 ```
 
 Open `http://127.0.0.1:8787`. The UI supports source setup, scan, conversion settings, retry settings, progress, failed files, reports, and Doctor checks.
 
 ## Retry, Failed Log, And Resume
 
-Every conversion writes `.dropraw_manifest.sqlite` in the output directory. Existing outputs are skipped unless `--overwrite` is enabled.
+Every conversion writes `.rawbridge_manifest.sqlite` in the output directory. Existing outputs are skipped unless `--overwrite` is enabled.
 
-Failed files are written to `dropraw_failed.tsv`. Use `--only-failed ./web_export/dropraw_failed.tsv` to retry just those paths.
+Failed files are written to `rawbridge_failed.tsv`. Use `--only-failed ./web_export/rawbridge_failed.tsv` to retry just those paths.
 
 ## Metadata Privacy
 
@@ -181,7 +192,7 @@ Never put Dropbox tokens, Google credentials, AWS secrets, OAuth refresh tokens,
 
 ## Reports
 
-DropRaw Web can generate:
+RawBridge can generate:
 
 - `report.json`
 - `report.csv`
@@ -189,24 +200,24 @@ DropRaw Web can generate:
 - `assets.json`
 - `report.html`
 - `picture-snippets.html`
-- `dropraw_failed.tsv`
+- `rawbridge_failed.tsv`
 
 ## Docker
 
 ```bash
-docker build -t dropraw-web:0.1.0 .
+docker build -t rawbridge:0.1.0 .
 docker run --rm \
   -v "$PWD/output:/output" \
   -e DROPBOX_ACCESS_TOKEN="..." \
-  dropraw-web:0.1.0 \
-  dropraw convert "DROPBOX_LINK" --provider dropbox --out /output
+  rawbridge:0.1.0 \
+  rawbridge convert "DROPBOX_LINK" --provider dropbox --out /output
 ```
 
 Published image names:
 
 ```bash
-docker pull ghcr.io/hemp-dev/dropraw-web:0.1.0
-docker pull ghcr.io/hemp-dev/dropraw-web:latest
+docker pull ghcr.io/hemp-dev/rawbridge:0.1.0
+docker pull ghcr.io/hemp-dev/rawbridge:latest
 ```
 
 ## International Mirrors
@@ -223,38 +234,50 @@ Forgejo, Gitea, and Сфера.Код / Платформа Сфера are docume
 
 ## Troubleshooting
 
-- Run `dropraw doctor`.
+- Run `rawbridge doctor`.
 - Use Python 3.11 or 3.12.
 - Increase `--list-retries`, `--download-retries`, and `--retry-delay` for large cloud folders.
 - Use `--only-failed` after interrupted or partially failed runs.
-- Check AVIF support with `dropraw doctor`.
+- Check AVIF support with `rawbridge doctor`.
 - Keep credentials in environment variables or local secret stores, not committed files.
 
 ## FAQ
 
-### What is DropRaw Web?
+### What is RawBridge?
 
-DropRaw Web is an open-source CLI and local UI for converting large RAW photo folders from Dropbox, Google Drive, S3/R2, and local folders into optimized WebP, AVIF, JPEG, and PNG assets.
+RawBridge is an open-source CLI and local UI for converting large RAW photo folders from Dropbox, Google Drive, S3/R2, and local folders into optimized WebP, AVIF, JPEG, and PNG assets.
 
-### Does DropRaw Web download Dropbox folders as ZIP files?
+### Does RawBridge download Dropbox folders as ZIP files?
 
-No. DropRaw Web scans Dropbox shared folders through provider listing and downloads RAW files one by one. This makes retries, `.part` downloads, failed logs, and resume practical for large folders.
+No. RawBridge scans Dropbox shared folders through provider listing and downloads RAW files one by one. This makes retries, `.part` downloads, failed logs, and resume practical for large folders.
 
-### Who is DropRaw Web for?
+### Who is RawBridge for?
 
-DropRaw Web is for photographers, designers, creative agencies, web developers, and teams that need to prepare RAW photo archives for websites, CMS uploads, galleries, landing pages, or asset pipelines.
+RawBridge is for photographers, designers, creative agencies, web developers, and teams that need to prepare RAW photo archives for websites, CMS uploads, galleries, landing pages, or asset pipelines.
 
 ### Which Python versions are recommended?
 
-Python 3.11 and Python 3.12 are recommended for DropRaw Web v0.1.x. Python 3.14 is not recommended yet.
+Python 3.11 and Python 3.12 are recommended for RawBridge v0.1.x. Python 3.14 is not recommended yet.
 
-### Can DropRaw Web resume after a failed cloud download?
+### Can RawBridge resume after a failed cloud download?
 
-Yes. DropRaw Web uses a SQLite manifest, `.part` downloads, retry settings, failed logs, and `--only-failed` so interrupted jobs can continue without overwriting existing outputs.
+Yes. RawBridge uses a SQLite manifest, `.part` downloads, retry settings, failed logs, and `--only-failed` so interrupted jobs can continue without overwriting existing outputs.
 
-### Does DropRaw Web remove photo metadata?
+### Does RawBridge remove photo metadata?
 
 The default metadata mode is `strip`, which removes GPS and private camera metadata where supported by the output encoder. This is recommended for public websites.
+
+## Compatibility
+
+RawBridge was formerly named DropRaw Web.
+
+New usage should prefer:
+
+```bash
+rawbridge ...
+```
+
+The `dropraw` command remains available as a legacy alias.
 
 ## Roadmap
 

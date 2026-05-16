@@ -5,7 +5,7 @@
 Основной российский public mirror.
 
 ```bash
-git remote add gitflic git@gitflic.ru:hemp-dev/dropraw-web.git
+git remote add gitflic git@gitflic.ru:hemp-dev/rawbridge.git
 ```
 
 ## GitVerse
@@ -13,7 +13,7 @@ git remote add gitflic git@gitflic.ru:hemp-dev/dropraw-web.git
 Второй российский public/private mirror.
 
 ```bash
-git remote add gitverse git@gitverse.ru:hemp-dev/dropraw-web.git
+git remote add gitverse git@gitverse.ru:hemp-dev/rawbridge.git
 ```
 
 ## Сфера.Код / Платформа Сфера
@@ -21,7 +21,7 @@ git remote add gitverse git@gitverse.ru:hemp-dev/dropraw-web.git
 Enterprise/self-hosted target. Создайте внутренний репозиторий в вашей инсталляции Сфера.Код и добавьте его как remote.
 
 ```bash
-git remote add sfera git@sfera.example.ru:TEAM/dropraw-web.git
+git remote add sfera git@sfera.example.ru:TEAM/rawbridge.git
 ```
 
 ## РТК-Феникс

@@ -7,7 +7,7 @@ Primary repository: GitHub.
 Template:
 
 ```bash
-git remote add github git@github.com:hemp-dev/dropraw-web.git
+git remote add github git@github.com:hemp-dev/rawbridge.git
 ```
 
 GitHub is primary unless maintainers explicitly change this.
@@ -23,9 +23,9 @@ Recommended international mirrors:
 Templates:
 
 ```bash
-git remote add gitlab git@gitlab.com:hemp-dev/dropraw-web.git
-git remote add bitbucket git@bitbucket.org:hemp-dev/dropraw-web.git
-git remote add codeberg git@codeberg.org:hemp-dev/dropraw-web.git
+git remote add gitlab git@gitlab.com:hemp-dev/rawbridge.git
+git remote add bitbucket git@bitbucket.org:hemp-dev/rawbridge.git
+git remote add codeberg git@codeberg.org:hemp-dev/rawbridge.git
 ```
 
 Do not claim an active mirror until the remote exists, sync succeeds, and release assets/docs are checked.
@@ -40,8 +40,8 @@ Recommended Russian public mirrors:
 Templates:
 
 ```bash
-git remote add gitflic git@gitflic.ru:hemp-dev/dropraw-web.git
-git remote add gitverse git@gitverse.ru:hemp-dev/dropraw-web.git
+git remote add gitflic git@gitflic.ru:hemp-dev/rawbridge.git
+git remote add gitverse git@gitverse.ru:hemp-dev/rawbridge.git
 ```
 
 See [RUSSIAN_MIRRORS.md](RUSSIAN_MIRRORS.md).
@@ -51,14 +51,14 @@ See [RUSSIAN_MIRRORS.md](RUSSIAN_MIRRORS.md).
 Forgejo and Gitea are recommended for self-hosted deployments.
 
 ```bash
-git remote add forgejo git@git.example.com:TEAM/dropraw-web.git
-git remote add gitea git@gitea.example.com:TEAM/dropraw-web.git
+git remote add forgejo git@git.example.com:TEAM/rawbridge.git
+git remote add gitea git@gitea.example.com:TEAM/rawbridge.git
 ```
 
 Сфера.Код / Платформа Сфера is treated as a Russian enterprise/self-hosted DevOps target, not necessarily a public mirror.
 
 ```bash
-git remote add sfera git@sfera.example.ru:TEAM/dropraw-web.git
+git remote add sfera git@sfera.example.ru:TEAM/rawbridge.git
 ```
 
 Do not assume every Forgejo/Gitea/Сфера.Код instance has CI enabled.
@@ -84,12 +84,12 @@ Software Heritage may be used for long-term preservation after the public reposi
 Before running sync scripts, manually add and verify remotes:
 
 ```bash
-git remote add github git@github.com:hemp-dev/dropraw-web.git
-git remote add gitlab git@gitlab.com:hemp-dev/dropraw-web.git
-git remote add bitbucket git@bitbucket.org:hemp-dev/dropraw-web.git
-git remote add codeberg git@codeberg.org:hemp-dev/dropraw-web.git
-git remote add gitflic git@gitflic.ru:hemp-dev/dropraw-web.git
-git remote add gitverse git@gitverse.ru:hemp-dev/dropraw-web.git
+git remote add github git@github.com:hemp-dev/rawbridge.git
+git remote add gitlab git@gitlab.com:hemp-dev/rawbridge.git
+git remote add bitbucket git@bitbucket.org:hemp-dev/rawbridge.git
+git remote add codeberg git@codeberg.org:hemp-dev/rawbridge.git
+git remote add gitflic git@gitflic.ru:hemp-dev/rawbridge.git
+git remote add gitverse git@gitverse.ru:hemp-dev/rawbridge.git
 ```
 
 Then run:

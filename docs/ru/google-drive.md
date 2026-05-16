@@ -1,7 +1,7 @@
 # Google Drive
 
 ```bash
-dropraw convert "https://drive.google.com/drive/folders/FOLDER_ID" \
+rawbridge convert "https://drive.google.com/drive/folders/FOLDER_ID" \
   --provider google-drive \
   --out ./web_export \
   --preset web

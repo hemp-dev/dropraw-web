@@ -2,8 +2,8 @@ from pathlib import Path
 
 import pytest
 
-from dropraw_web.models import RemoteFile
-from dropraw_web.pipeline.scanner import output_paths_for_file, safe_relative_path
+from rawbridge.models import RemoteFile
+from rawbridge.pipeline.scanner import output_paths_for_file, safe_relative_path
 
 
 def remote(path: str) -> RemoteFile:

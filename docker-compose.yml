@@ -1,8 +1,8 @@
 services:
-  dropraw-ui:
+  rawbridge-ui:
     build: .
-    image: dropraw-web:local
-    command: ["dropraw", "ui", "--host", "0.0.0.0", "--port", "8787", "--no-open-browser"]
+    image: rawbridge:local
+    command: ["rawbridge", "ui", "--host", "0.0.0.0", "--port", "8787", "--no-open-browser"]
     environment:
       DROPBOX_ACCESS_TOKEN: ${DROPBOX_ACCESS_TOKEN:-}
       GOOGLE_APPLICATION_CREDENTIALS: ${GOOGLE_APPLICATION_CREDENTIALS:-}
@@ -12,8 +12,8 @@ services:
       AWS_REGION: ${AWS_REGION:-}
       AWS_ENDPOINT_URL: ${AWS_ENDPOINT_URL:-}
       S3_ENDPOINT_URL: ${S3_ENDPOINT_URL:-}
-      DROPRAW_UI_ALLOWED_SOURCE_ROOTS: /input
-      DROPRAW_UI_ALLOWED_OUTPUT_ROOTS: /output
+      RAWBRIDGE_UI_ALLOWED_SOURCE_ROOTS: /input
+      RAWBRIDGE_UI_ALLOWED_OUTPUT_ROOTS: /output
     ports:
       - "127.0.0.1:8787:8787"
     volumes:

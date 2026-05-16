@@ -1,6 +1,6 @@
-# DropRaw Web: конвертация больших RAW-папок без огромных ZIP-архивов
+# RawBridge: конвертация больших RAW-папок без огромных ZIP-архивов
 
-DropRaw Web — open-source CLI и локальный UI для подготовки больших RAW-фотоархивов к публикации на сайте.
+RawBridge — open-source CLI и локальный UI для подготовки больших RAW-фотоархивов к публикации на сайте.
 
 Практическая история началась с реальной Dropbox shared folder на 816 Nikon NEF files. Большие folders могут падать на listing/download из-за временных network/SSL/SDK ошибок, поэтому архитектура строилась вокруг retry/resume, `.part` downloads, failed log и отчетов.
 

@@ -48,7 +48,9 @@ def check_pyproject() -> list[str]:
     if not project.get("keywords"):
         failures.append("pyproject keywords are missing")
     scripts = project.get("scripts", {})
-    if scripts.get("dropraw") != "dropraw_web.cli:app":
+    if scripts.get("rawbridge") != "rawbridge.cli:app":
+        failures.append("rawbridge entry point is missing")
+    if scripts.get("dropraw") != "rawbridge.cli:app":
         failures.append("dropraw entry point is missing")
     return failures
 
@@ -121,7 +123,7 @@ def check_sync_scripts() -> list[str]:
 
 
 def check_build() -> list[str]:
-    if os.getenv("DROPRAW_RELEASE_CHECK_BUILD") != "1":
+    if os.getenv("RAWBRIDGE_RELEASE_CHECK_BUILD") != "1":
         return []
     result = subprocess.run([sys.executable, "-m", "build"], cwd=ROOT, check=False)
     return [] if result.returncode == 0 else ["python -m build failed"]

@@ -1,6 +1,6 @@
 from pathlib import Path
 
-from dropraw_web.providers.local import LocalProvider
+from rawbridge.providers.local import LocalProvider
 
 
 def test_local_provider_recursive_scan(tmp_path):

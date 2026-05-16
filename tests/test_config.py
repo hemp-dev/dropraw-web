@@ -1,6 +1,6 @@
 import pytest
 
-from dropraw_web.config import load_presets, parse_csv_list, parse_int_csv, validate_formats, validate_quality
+from rawbridge.config import load_presets, parse_csv_list, parse_int_csv, validate_formats, validate_quality
 
 
 def test_load_presets_contains_web():

@@ -1,4 +1,4 @@
-from dropraw_web.pipeline.scanner import detect_provider
+from rawbridge.pipeline.scanner import detect_provider
 
 
 def test_detect_local_provider(tmp_path):

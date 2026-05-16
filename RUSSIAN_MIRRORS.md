@@ -1,4 +1,4 @@
-# Российские Git / DevOps площадки для DropRaw Web
+# Российские Git / DevOps площадки для RawBridge
 
 ## Зачем Нужны Российские Зеркала
 
@@ -6,10 +6,10 @@
 
 ## GitFlic
 
-GitFlic рассматривается как основной российский public mirror для DropRaw Web. Он подходит для open-source и private repositories.
+GitFlic рассматривается как основной российский public mirror для RawBridge. Он подходит для open-source и private repositories.
 
 ```bash
-git remote add gitflic git@gitflic.ru:hemp-dev/dropraw-web.git
+git remote add gitflic git@gitflic.ru:hemp-dev/rawbridge.git
 ```
 
 Не помечайте GitFlic mirror как active, пока repository, push, tags и release workflow не проверены.
@@ -19,7 +19,7 @@ git remote add gitflic git@gitflic.ru:hemp-dev/dropraw-web.git
 GitVerse рассматривается как второй российский public/private mirror. Он подходит для командной разработки и open-source публикации.
 
 ```bash
-git remote add gitverse git@gitverse.ru:hemp-dev/dropraw-web.git
+git remote add gitverse git@gitverse.ru:hemp-dev/rawbridge.git
 ```
 
 Не помечайте GitVerse mirror как active, пока repository, push, tags и release workflow не проверены.
@@ -31,7 +31,7 @@ git remote add gitverse git@gitverse.ru:hemp-dev/dropraw-web.git
 Нейтральный workflow:
 
 ```bash
-git remote add sfera git@sfera.example.ru:TEAM/dropraw-web.git
+git remote add sfera git@sfera.example.ru:TEAM/rawbridge.git
 git push sfera main --tags
 ```
 
@@ -50,7 +50,7 @@ Mos.Hub является optional public-sector/open-source target. Исполь
 Placeholder template:
 
 ```bash
-git remote add moshub git@moshub.example:hemp-dev/dropraw-web.git
+git remote add moshub git@moshub.example:hemp-dev/rawbridge.git
 ```
 
 Этот remote template не является подтверждением active mirror.

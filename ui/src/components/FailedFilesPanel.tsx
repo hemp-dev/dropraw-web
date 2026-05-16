@@ -18,7 +18,7 @@ export function FailedFilesPanel({ failed, failedLogPath, errorsPath, onRetryFai
       </div>
       <p className="mt-2 text-sm text-slate-500">Failed count: {failed.length}</p>
       <div className="mt-3 grid gap-2 text-sm text-slate-600">
-        <div>dropraw_failed.tsv: {failedLogPath || "Not generated yet"}</div>
+        <div>rawbridge_failed.tsv: {failedLogPath || "Not generated yet"}</div>
         <div>errors.csv: {errorsPath || "Not generated yet"}</div>
       </div>
       <div className="mt-4 max-h-56 overflow-auto rounded border border-line">

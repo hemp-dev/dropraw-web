@@ -37,7 +37,7 @@
 
 ## After Release
 
-- [ ] Test `pip install dropraw-web` from PyPI.
+- [ ] Test `pip install rawbridge` from PyPI.
 - [ ] Test Docker pull.
 - [ ] Check GitHub release assets.
 - [ ] Check GitLab mirror.

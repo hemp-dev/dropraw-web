@@ -1,6 +1,6 @@
 # LinkedIn
 
-DropRaw Web v0.1.0 is a practical open-source tool for teams that need to prepare large RAW photo archives for the web.
+RawBridge v0.1.0 is a practical open-source tool for teams that need to prepare large RAW photo archives for the web.
 
 It supports Dropbox shared folders, Google Drive, S3/R2, and local folders, converting RAW files into optimized WebP/AVIF/JPEG/PNG assets with retry, resume, failed logs, and reports.
 

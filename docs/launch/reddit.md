@@ -1,6 +1,6 @@
 # Reddit Post
 
-I built DropRaw Web, an open-source CLI + local UI for converting large RAW photo folders into optimized web images.
+I built RawBridge, an open-source CLI + local UI for converting large RAW photo folders into optimized web images.
 
 It supports local folders, Dropbox shared folders, Google Drive, and S3/R2. The Dropbox path avoids downloading a huge ZIP; it lists files and downloads RAW files one by one with retries, `.part` files, failed logs, and resume.
 

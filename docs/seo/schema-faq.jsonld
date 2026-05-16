@@ -4,34 +4,34 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "What is DropRaw Web?",
+      "name": "What is RawBridge?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "DropRaw Web is an open-source CLI and local UI for converting large RAW photo folders from Dropbox, Google Drive, S3/R2, and local folders into optimized WebP, AVIF, JPEG, and PNG assets."
+        "text": "RawBridge is an open-source CLI and local UI for converting large RAW photo folders from Dropbox, Google Drive, S3/R2, and local folders into optimized WebP, AVIF, JPEG, and PNG assets."
       }
     },
     {
       "@type": "Question",
-      "name": "Does DropRaw Web download Dropbox folders as ZIP files?",
+      "name": "Does RawBridge download Dropbox folders as ZIP files?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. DropRaw Web avoids huge Dropbox ZIP downloads by listing shared folders and downloading RAW files one by one with retry, .part downloads, failed logs, and resume support."
+        "text": "No. RawBridge avoids huge Dropbox ZIP downloads by listing shared folders and downloading RAW files one by one with retry, .part downloads, failed logs, and resume support."
       }
     },
     {
       "@type": "Question",
-      "name": "Which sources does DropRaw Web support?",
+      "name": "Which sources does RawBridge support?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "DropRaw Web supports local folders, Dropbox shared folders, Google Drive folders, AWS S3, Cloudflare R2, MinIO, and S3-compatible storage."
+        "text": "RawBridge supports local folders, Dropbox shared folders, Google Drive folders, AWS S3, Cloudflare R2, MinIO, and S3-compatible storage."
       }
     },
     {
       "@type": "Question",
-      "name": "Can DropRaw Web resume failed jobs?",
+      "name": "Can RawBridge resume failed jobs?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. DropRaw Web stores conversion state in a SQLite manifest, uses .part downloads, writes dropraw_failed.tsv, and supports --only-failed to retry failed files without overwriting existing outputs."
+        "text": "Yes. RawBridge stores conversion state in a SQLite manifest, uses .part downloads, writes rawbridge_failed.tsv, and supports --only-failed to retry failed files without overwriting existing outputs."
       }
     }
   ]

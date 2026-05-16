@@ -31,11 +31,11 @@ COPY --from=ui-builder /app/ui/dist ./ui/dist
 
 RUN pip install --upgrade pip \
     && pip install . \
-    && useradd --create-home --shell /usr/sbin/nologin dropraw \
-    && chown -R dropraw:dropraw /app
+    && useradd --create-home --shell /usr/sbin/nologin rawbridge \
+    && chown -R rawbridge:rawbridge /app
 
 EXPOSE 8787
 
-USER dropraw
+USER rawbridge
 
-CMD ["dropraw", "--help"]
+CMD ["rawbridge", "--help"]

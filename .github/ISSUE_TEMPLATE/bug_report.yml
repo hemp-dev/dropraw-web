@@ -1,5 +1,5 @@
 name: Bug report
-description: Report a reproducible DropRaw Web bug.
+description: Report a reproducible RawBridge bug.
 title: "[Bug]: "
 labels: ["bug"]
 body:
@@ -14,7 +14,7 @@ body:
   - type: input
     id: version
     attributes:
-      label: DropRaw version
+      label: RawBridge version
   - type: dropdown
     id: provider
     attributes:
@@ -42,5 +42,5 @@ body:
   - type: dropdown
     id: failed_log
     attributes:
-      label: Does dropraw_failed.tsv exist?
+      label: Does rawbridge_failed.tsv exist?
       options: ["yes", "no", "not sure"]

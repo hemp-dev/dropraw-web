@@ -23,10 +23,10 @@ export function RetrySettings(props: Props) {
           <input type="checkbox" checked={props.onlyFailed} onChange={(event) => props.onChange({ onlyFailed: event.target.checked })} />
           Retry only failed
         </label>
-        <input className="focus-ring rounded border border-line px-3 py-2 text-sm" value={props.failedLog} onChange={(event) => props.onChange({ failedLog: event.target.value })} placeholder="/output/dropraw_failed.tsv" />
+        <input className="focus-ring rounded border border-line px-3 py-2 text-sm" value={props.failedLog} onChange={(event) => props.onChange({ failedLog: event.target.value })} placeholder="/output/rawbridge_failed.tsv" />
       </div>
       <p className="mt-3 text-sm text-slate-500">Large cloud folders may occasionally fail during listing or download. Retries and cooldown help complete long jobs safely.</p>
-      <p className="mt-1 text-sm text-slate-500">Retry failed only processes files from dropraw_failed.tsv and keeps existing outputs unchanged.</p>
+      <p className="mt-1 text-sm text-slate-500">Retry failed only processes files from rawbridge_failed.tsv and keeps existing outputs unchanged.</p>
     </section>
   );
 }

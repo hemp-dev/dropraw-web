@@ -10,8 +10,8 @@ pipelines:
           - apt-get update && apt-get install -y libraw-dev build-essential
           - python -m pip install -e ".[dev]"
           - pytest
-          - dropraw doctor
-          - dropraw --version
+          - rawbridge doctor
+          - rawbridge --version
           - python -m build
           - twine check dist/*
   tags:

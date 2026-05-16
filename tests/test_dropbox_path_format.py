@@ -1,4 +1,4 @@
-from dropraw_web.providers.dropbox import ensure_leading_slash
+from rawbridge.providers.dropbox import ensure_leading_slash
 
 
 def test_ensure_leading_slash_for_shared_download():
