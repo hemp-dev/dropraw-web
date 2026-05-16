@@ -1,4 +1,4 @@
-# DropRaw Web
+# RawBridge
 
 [English](README.md) | [Русский](README.ru.md) | Español | [中文](README.zh.md) | [Deutsch](README.de.md) | [Français](README.fr.md)
 
@@ -8,11 +8,11 @@ Convierte grandes carpetas RAW desde Dropbox, Google Drive, S3/R2 y carpetas loc
 
 ## Qué Hace
 
-DropRaw Web es una CLI open-source y una UI local para preparar carpetas RAW grandes para la web. Escanea fuentes cloud/locales, descarga archivos RAW uno por uno, convierte a WebP/AVIF/JPEG/PNG y puede reanudar después de fallos de red.
+RawBridge es una CLI open-source y una UI local para preparar carpetas RAW grandes para la web. Escanea fuentes cloud/locales, descarga archivos RAW uno por uno, convierte a WebP/AVIF/JPEG/PNG y puede reanudar después de fallos de red.
 
 ## Por Qué No ZIP
 
-Los ZIP grandes suelen fallar. DropRaw Web usa listing API, `.part` downloads, size checks, failed log, retry y resume.
+Los ZIP grandes suelen fallar. RawBridge usa listing API, `.part` downloads, size checks, failed log, retry y resume.
 
 ## Tested on a real Dropbox RAW folder
 
@@ -39,9 +39,9 @@ WebP, AVIF, JPEG, PNG. AVIF depende del build de Pillow.
 Python recomendado: 3.11 o 3.12. Python 3.14 no se recomienda todavía.
 
 ```bash
-pip install dropraw-web
-git clone https://github.com/hemp-dev/dropraw-web.git
-cd dropraw-web
+pip install rawbridge
+git clone https://github.com/hemp-dev/rawbridge.git
+cd rawbridge
 python3.12 -m venv .venv
 source .venv/bin/activate
 pip install -e ".[dev]"
@@ -50,16 +50,16 @@ pip install -e ".[dev]"
 ## Quick Start
 
 ```bash
-dropraw --version
-dropraw doctor
-dropraw scan ./RAW
-dropraw convert ./RAW --out ./web_export --preset web
+rawbridge --version
+rawbridge doctor
+rawbridge scan ./RAW
+rawbridge convert ./RAW --out ./web_export --preset web
 ```
 
 ## Dropbox Example
 
 ```bash
-dropraw convert "https://www.dropbox.com/scl/fo/..." \
+rawbridge convert "https://www.dropbox.com/scl/fo/..." \
   --provider dropbox \
   --out ./web_export \
   --preset web \
@@ -72,32 +72,32 @@ dropraw convert "https://www.dropbox.com/scl/fo/..." \
 ## Google Drive Example
 
 ```bash
-dropraw convert "https://drive.google.com/drive/folders/FOLDER_ID" --provider google-drive --out ./web_export --preset web
+rawbridge convert "https://drive.google.com/drive/folders/FOLDER_ID" --provider google-drive --out ./web_export --preset web
 ```
 
 ## S3/R2 And Local
 
 ```bash
-dropraw convert s3://bucket/raw --provider s3 --out ./web_export --preset web
-dropraw convert r2://bucket/raw --endpoint-url https://ACCOUNT_ID.r2.cloudflarestorage.com --out ./web_export --preset web
-dropraw convert ./RAW --provider local --out ./web_export --preset web
+rawbridge convert s3://bucket/raw --provider s3 --out ./web_export --preset web
+rawbridge convert r2://bucket/raw --endpoint-url https://ACCOUNT_ID.r2.cloudflarestorage.com --out ./web_export --preset web
+rawbridge convert ./RAW --provider local --out ./web_export --preset web
 ```
 
 ## UI Mode
 
 ```bash
-dropraw ui
+rawbridge ui
 ```
 
 ## Retry / Failed Log / Resume
 
-Use `dropraw_failed.tsv`, `.dropraw_manifest.sqlite`, and `--only-failed ./web_export/dropraw_failed.tsv`.
+Use `rawbridge_failed.tsv`, `.rawbridge_manifest.sqlite`, and `--only-failed ./web_export/rawbridge_failed.tsv`.
 
 ## Metadata Privacy, Reports, Docker, Mirrors
 
 Default metadata mode is `strip`. Reports include `report.json`, `report.csv`, `report.html`, `assets.json`, `errors.csv`, and `picture-snippets.html`.
 
-See [MIRRORS.md](MIRRORS.md) and [RUSSIAN_MIRRORS.md](RUSSIAN_MIRRORS.md). Build Docker with `docker build -t dropraw-web:0.1.0 .`.
+See [MIRRORS.md](MIRRORS.md) and [RUSSIAN_MIRRORS.md](RUSSIAN_MIRRORS.md). Build Docker with `docker build -t rawbridge:0.1.0 .`.
 
 ## Roadmap / Contributing / License
 

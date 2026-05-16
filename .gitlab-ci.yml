@@ -16,8 +16,8 @@ python:3.11:
     - python -m pip install -e ".[dev]"
   script:
     - pytest
-    - dropraw doctor
-    - dropraw --version
+    - rawbridge doctor
+    - rawbridge --version
 
 python:3.12:
   stage: test
@@ -27,8 +27,8 @@ python:3.12:
     - python -m pip install -e ".[dev]"
   script:
     - pytest
-    - dropraw doctor
-    - dropraw --version
+    - rawbridge doctor
+    - rawbridge --version
 
 package:
   stage: package

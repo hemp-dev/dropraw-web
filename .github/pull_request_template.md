@@ -3,7 +3,7 @@
 ## Tests
 
 - [ ] `pytest`
-- [ ] `dropraw doctor`
+- [ ] `rawbridge doctor`
 - [ ] UI build if UI changed
 
 ## Checklist

@@ -1,7 +1,7 @@
 from pathlib import Path
 
-from dropraw_web.models import AssetResult, ConversionPreset, RemoteFile
-from dropraw_web.pipeline.manifest import Manifest
+from rawbridge.models import AssetResult, ConversionPreset, RemoteFile
+from rawbridge.pipeline.manifest import Manifest
 
 
 def test_manifest_mark_done_and_skip(tmp_path):
@@ -45,7 +45,7 @@ def test_manifest_records_failed(tmp_path):
 
 
 def _job_config(tmp_path: Path):
-    from dropraw_web.models import JobConfig
+    from rawbridge.models import JobConfig
 
     return JobConfig(source=str(tmp_path), output_dir=tmp_path)
 

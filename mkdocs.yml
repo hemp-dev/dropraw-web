@@ -1,6 +1,6 @@
-site_name: DropRaw Web
+site_name: RawBridge
 site_description: Multi-cloud RAW to web image conversion CLI and local UI
-repo_url: https://github.com/hemp-dev/dropraw-web
+repo_url: https://github.com/hemp-dev/rawbridge
 theme:
   name: material
   features:

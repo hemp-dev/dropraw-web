@@ -1,9 +1,9 @@
 cff-version: 1.2.0
-message: "If you use DropRaw Web in published work, please cite it."
-title: "DropRaw Web"
+message: "If you use RawBridge in published work, please cite it."
+title: "RawBridge"
 version: "0.1.0"
 authors:
-  - family-names: "DropRaw Web contributors"
+  - family-names: "RawBridge contributors"
 license: "MIT"
-repository-code: "https://github.com/hemp-dev/dropraw-web"
+repository-code: "https://github.com/hemp-dev/rawbridge"
 abstract: "Open-source CLI and local UI for converting large RAW photo folders from Dropbox, Google Drive, S3/R2, and local folders into web-ready images."

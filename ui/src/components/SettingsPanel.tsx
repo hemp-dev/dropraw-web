@@ -13,7 +13,7 @@ export function SettingsPanel() {
         </label>
         <label className="text-sm font-medium text-slate-700">
           Temp dir
-          <input className="focus-ring mt-1 w-full rounded border border-line px-3 py-2" placeholder=".dropraw_tmp" />
+          <input className="focus-ring mt-1 w-full rounded border border-line px-3 py-2" placeholder=".rawbridge_tmp" />
         </label>
         <label className="text-sm font-medium text-slate-700">
           Max temp size

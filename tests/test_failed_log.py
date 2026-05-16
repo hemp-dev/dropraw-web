@@ -1,5 +1,5 @@
-from dropraw_web.models import FailedItem, RemoteFile
-from dropraw_web.pipeline.failed_log import filter_files_by_failed_log, read_failed_log, write_failed_log
+from rawbridge.models import FailedItem, RemoteFile
+from rawbridge.pipeline.failed_log import filter_files_by_failed_log, read_failed_log, write_failed_log
 
 
 def test_failed_log_roundtrip(tmp_path):

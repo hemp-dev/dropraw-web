@@ -72,7 +72,7 @@ export function SourceForm({ providers, value, outputDir, onChange, onOutputDirC
       </div>
       {(value.provider === "dropbox" || value.source.includes("dropbox.com")) && (
         <p className="mt-3 rounded border border-sky-200 bg-sky-50 p-3 text-sm text-sky-800">
-          Dropbox folders are scanned through the API. DropRaw does not download the whole folder as ZIP.
+          Dropbox folders are scanned through the API. RawBridge does not download the whole folder as ZIP.
         </p>
       )}
       <p className="mt-3 text-sm text-slate-500">Optimized images will be saved locally. Original RAW files are only downloaded temporarily.</p>

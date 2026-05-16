@@ -2,23 +2,23 @@
 
 ## Primary Snippet
 
-DropRaw Web is an open-source CLI and local UI for converting large RAW photo folders from Dropbox, Google Drive, S3/R2, and local folders into optimized WebP, AVIF, JPEG, and PNG assets without huge ZIP downloads.
+RawBridge is an open-source CLI and local UI for converting large RAW photo folders from Dropbox, Google Drive, S3/R2, and local folders into optimized WebP, AVIF, JPEG, and PNG assets without huge ZIP downloads.
 
 ## Dropbox Snippet
 
-DropRaw Web converts Dropbox shared folders of RAW photos without downloading a huge folder ZIP. It lists files, downloads RAW images one by one, retries transient failures, writes `.part` files, and resumes interrupted jobs.
+RawBridge converts Dropbox shared folders of RAW photos without downloading a huge folder ZIP. It lists files, downloads RAW images one by one, retries transient failures, writes `.part` files, and resumes interrupted jobs.
 
 ## Developer Snippet
 
-DropRaw Web provides a Python CLI, local UI, Docker image, reports, retry/resume logic, and provider integrations for local folders, Dropbox, Google Drive, S3, Cloudflare R2, and S3-compatible storage.
+RawBridge provides a Python CLI, local UI, Docker image, reports, retry/resume logic, and provider integrations for local folders, Dropbox, Google Drive, S3, Cloudflare R2, and S3-compatible storage.
 
 ## Russian Snippet
 
-DropRaw Web — open-source CLI и локальный UI для конвертации больших RAW-папок из Dropbox, Google Drive, S3/R2 и локальных папок в WebP/AVIF/JPEG/PNG без скачивания огромных ZIP-архивов.
+RawBridge — open-source CLI и локальный UI для конвертации больших RAW-папок из Dropbox, Google Drive, S3/R2 и локальных папок в WebP/AVIF/JPEG/PNG без скачивания огромных ZIP-архивов.
 
 ## H1 Options
 
-- DropRaw Web: RAW photo folders to web-ready image assets
+- RawBridge: RAW photo folders to web-ready image assets
 - Convert large RAW folders to WebP, AVIF, JPEG, and PNG
 - Dropbox, Google Drive, S3/R2 RAW conversion without huge ZIP downloads
 

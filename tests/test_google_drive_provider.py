@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import pytest
 
-from dropraw_web.providers.google_drive import GoogleDriveProvider, extract_folder_id, is_folder_metadata
+from rawbridge.providers.google_drive import GoogleDriveProvider, extract_folder_id, is_folder_metadata
 
 
 def test_google_drive_folder_id_parser():

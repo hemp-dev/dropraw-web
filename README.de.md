@@ -1,4 +1,4 @@
-# DropRaw Web
+# RawBridge
 
 [English](README.md) | [Русский](README.ru.md) | [Español](README.es.md) | [中文](README.zh.md) | Deutsch | [Français](README.fr.md)
 
@@ -8,11 +8,11 @@ Konvertiert große RAW-Fotoordner aus Dropbox, Google Drive, S3/R2 und lokalen O
 
 ## What It Does
 
-DropRaw Web ist eine open-source CLI mit local UI für web-ready image assets aus großen RAW photo folders. Es scannt Quellen, lädt RAW files einzeln, konvertiert nach WebP/AVIF/JPEG/PNG und kann nach Netzwerkfehlern fortsetzen.
+RawBridge ist eine open-source CLI mit local UI für web-ready image assets aus großen RAW photo folders. Es scannt Quellen, lädt RAW files einzeln, konvertiert nach WebP/AVIF/JPEG/PNG und kann nach Netzwerkfehlern fortsetzen.
 
 ## Why Not ZIP?
 
-Große ZIP downloads brechen oft ab. DropRaw Web nutzt provider APIs, `.part` downloads, size checks, failed log, retry und resume.
+Große ZIP downloads brechen oft ab. RawBridge nutzt provider APIs, `.part` downloads, size checks, failed log, retry und resume.
 
 ## Tested on a real Dropbox RAW folder
 
@@ -39,9 +39,9 @@ WebP, AVIF, JPEG, PNG. AVIF depends on Pillow build support.
 Recommended Python versions: 3.11 and 3.12. Python 3.14 is not recommended yet.
 
 ```bash
-pip install dropraw-web
-git clone https://github.com/hemp-dev/dropraw-web.git
-cd dropraw-web
+pip install rawbridge
+git clone https://github.com/hemp-dev/rawbridge.git
+cd rawbridge
 python3.12 -m venv .venv
 source .venv/bin/activate
 pip install -e ".[dev]"
@@ -50,31 +50,31 @@ pip install -e ".[dev]"
 ## Quick Start
 
 ```bash
-dropraw --version
-dropraw doctor
-dropraw scan ./RAW
-dropraw convert ./RAW --out ./web_export --preset web
+rawbridge --version
+rawbridge doctor
+rawbridge scan ./RAW
+rawbridge convert ./RAW --out ./web_export --preset web
 ```
 
 ## Dropbox / Google Drive / S3/R2 / Local
 
 ```bash
-dropraw convert "https://www.dropbox.com/scl/fo/..." --provider dropbox --out ./web_export --preset web --list-retries 10 --download-retries 10 --retry-delay 3 --cooldown 1
-dropraw convert "https://drive.google.com/drive/folders/FOLDER_ID" --provider google-drive --out ./web_export --preset web
-dropraw convert s3://bucket/raw --provider s3 --out ./web_export --preset web
-dropraw convert r2://bucket/raw --endpoint-url https://ACCOUNT_ID.r2.cloudflarestorage.com --out ./web_export --preset web
-dropraw convert ./RAW --provider local --out ./web_export --preset web
+rawbridge convert "https://www.dropbox.com/scl/fo/..." --provider dropbox --out ./web_export --preset web --list-retries 10 --download-retries 10 --retry-delay 3 --cooldown 1
+rawbridge convert "https://drive.google.com/drive/folders/FOLDER_ID" --provider google-drive --out ./web_export --preset web
+rawbridge convert s3://bucket/raw --provider s3 --out ./web_export --preset web
+rawbridge convert r2://bucket/raw --endpoint-url https://ACCOUNT_ID.r2.cloudflarestorage.com --out ./web_export --preset web
+rawbridge convert ./RAW --provider local --out ./web_export --preset web
 ```
 
 ## UI Mode
 
 ```bash
-dropraw ui
+rawbridge ui
 ```
 
 ## Retry / Failed Log / Resume
 
-Use `dropraw_failed.tsv`, `.dropraw_manifest.sqlite`, and `--only-failed ./web_export/dropraw_failed.tsv`.
+Use `rawbridge_failed.tsv`, `.rawbridge_manifest.sqlite`, and `--only-failed ./web_export/rawbridge_failed.tsv`.
 
 ## Metadata Privacy, Reports, Docker, Mirrors
 

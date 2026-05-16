@@ -1,4 +1,4 @@
-from dropraw_web.constants import is_raw_file
+from rawbridge.constants import is_raw_file
 
 
 def test_is_raw_file_case_insensitive():

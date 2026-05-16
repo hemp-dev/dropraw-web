@@ -28,7 +28,7 @@ jobs:
         working-directory: ui
         run: npm ci && npm run build
       - name: Include UI assets in package
-        run: mkdir -p src/dropraw_web/ui/dist && cp -R ui/dist/. src/dropraw_web/ui/dist/
+        run: mkdir -p src/rawbridge/ui/dist && cp -R ui/dist/. src/rawbridge/ui/dist/
       - name: Install build tools
         run: python -m pip install build twine
       - name: Build package
@@ -38,7 +38,7 @@ jobs:
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
-          name: DropRaw Web ${{ github.ref_name }} — Multi-cloud RAW to Web Assets
+          name: RawBridge ${{ github.ref_name }} - Multi-cloud RAW to Web Assets
           body_path: docs/release-notes/v0.1.0.md
           files: dist/*
       - name: Publish to PyPI

@@ -1,7 +1,7 @@
 from pathlib import Path
 
-from dropraw_web.models import AssetResult, FailedItem, JobSummary
-from dropraw_web.pipeline.reports import generate_reports
+from rawbridge.models import AssetResult, FailedItem, JobSummary
+from rawbridge.pipeline.reports import generate_reports
 
 
 def test_picture_snippets_escape_attribute_values(tmp_path):

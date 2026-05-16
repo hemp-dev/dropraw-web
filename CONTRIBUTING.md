@@ -1,6 +1,6 @@
 # Contributing
 
-Thanks for helping make DropRaw Web better.
+Thanks for helping make RawBridge better.
 
 ## Development Setup
 
@@ -11,8 +11,8 @@ python3.12 -m venv .venv
 source .venv/bin/activate
 pip install -e ".[dev]"
 pytest
-dropraw doctor
-dropraw --version
+rawbridge doctor
+rawbridge --version
 ```
 
 ## Running UI
@@ -22,7 +22,7 @@ cd ui
 npm ci
 npm run build
 cd ..
-dropraw ui
+rawbridge ui
 ```
 
 ## Adding A Provider
@@ -38,7 +38,7 @@ dropraw ui
 
 ## Adding An Output Encoder
 
-- Keep encoder logic isolated under `src/dropraw_web/imaging`.
+- Keep encoder logic isolated under `src/rawbridge/imaging`.
 - Add format validation.
 - Add tests for extension, MIME expectations, and metadata behavior.
 - Document optional system/package dependencies.

@@ -2,8 +2,8 @@ from __future__ import annotations
 
 import pytest
 
-from dropraw_web.models import RemoteFile
-from dropraw_web.providers.s3 import S3Provider, parse_s3_url
+from rawbridge.models import RemoteFile
+from rawbridge.providers.s3 import S3Provider, parse_s3_url
 
 
 def test_parse_s3_urls():

@@ -1,11 +1,11 @@
 # Quick Start
 
 ```bash
-dropraw --version
-dropraw doctor
-dropraw scan ./RAW
-dropraw convert ./RAW --out ./web_export --preset web
-dropraw ui
+rawbridge --version
+rawbridge doctor
+rawbridge scan ./RAW
+rawbridge convert ./RAW --out ./web_export --preset web
+rawbridge ui
 ```
 
-Reports are written to the output directory. Resume state is stored in `.dropraw_manifest.sqlite`.
+Reports are written to the output directory. Resume state is stored in `.rawbridge_manifest.sqlite`.

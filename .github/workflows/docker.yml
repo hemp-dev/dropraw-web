@@ -23,7 +23,7 @@ jobs:
       - uses: docker/metadata-action@v5
         id: meta
         with:
-          images: ghcr.io/hemp-dev/dropraw-web
+          images: ghcr.io/hemp-dev/rawbridge
           tags: |
             type=semver,pattern={{version}}
             type=ref,event=tag

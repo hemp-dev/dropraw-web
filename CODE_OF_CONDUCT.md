@@ -1,6 +1,6 @@
 # Code of Conduct
 
-DropRaw Web uses a practical Contributor Covenant style policy.
+RawBridge uses a practical Contributor Covenant style policy.
 
 ## Our Standards
 

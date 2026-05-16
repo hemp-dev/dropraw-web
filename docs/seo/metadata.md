@@ -5,7 +5,7 @@
 Title:
 
 ```text
-DropRaw Web — Multi-cloud RAW to WebP/AVIF/JPEG converter
+RawBridge — Multi-cloud RAW to WebP/AVIF/JPEG converter
 ```
 
 Description:
@@ -25,13 +25,13 @@ raw, webp, avif, jpeg, photography, dropbox, google-drive, s3, r2, cli, image-co
 Meta title:
 
 ```text
-DropRaw Web Docs — Convert RAW folders to WebP, AVIF, JPEG, PNG
+RawBridge Docs — Convert RAW folders to WebP, AVIF, JPEG, PNG
 ```
 
 Meta description:
 
 ```text
-Documentation for DropRaw Web, an open-source CLI and local UI that converts large RAW photo folders from Dropbox, Google Drive, S3/R2, and local folders into web-ready assets with retry and resume.
+Documentation for RawBridge, an open-source CLI and local UI that converts large RAW photo folders from Dropbox, Google Drive, S3/R2, and local folders into web-ready assets with retry and resume.
 ```
 
 ## Release Page
@@ -39,13 +39,13 @@ Documentation for DropRaw Web, an open-source CLI and local UI that converts lar
 Release title:
 
 ```text
-DropRaw Web v0.1.0 — Multi-cloud RAW to Web Assets
+RawBridge v0.1.0 — Multi-cloud RAW to Web Assets
 ```
 
 Release summary:
 
 ```text
-DropRaw Web v0.1.0 converts large RAW photo folders from Dropbox, Google Drive, S3/R2, and local folders into WebP/AVIF/JPEG/PNG assets. It avoids huge ZIP downloads and includes retry, .part downloads, failed logs, reports, Docker, GHCR images, and a local UI.
+RawBridge v0.1.0 converts large RAW photo folders from Dropbox, Google Drive, S3/R2, and local folders into WebP/AVIF/JPEG/PNG assets. It avoids huge ZIP downloads and includes retry, .part downloads, failed logs, reports, Docker, GHCR images, and a local UI.
 ```
 
 ## Social Preview
@@ -64,6 +64,6 @@ Open-source CLI + local UI for Dropbox, Google Drive, S3/R2, and local RAW archi
 
 ## Canonical Links
 
-- Repository: `https://github.com/hemp-dev/dropraw-web`
-- Release: `https://github.com/hemp-dev/dropraw-web/releases/tag/v0.1.0`
-- Container image: `ghcr.io/hemp-dev/dropraw-web:0.1.0`
+- Repository: `https://github.com/hemp-dev/rawbridge`
+- Release: `https://github.com/hemp-dev/rawbridge/releases/tag/v0.1.0`
+- Container image: `ghcr.io/hemp-dev/rawbridge:0.1.0`

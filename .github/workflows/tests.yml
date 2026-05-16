@@ -22,9 +22,9 @@ jobs:
       - name: Run tests
         run: pytest
       - name: Doctor
-        run: dropraw doctor
+        run: rawbridge doctor
       - name: Version
-        run: dropraw --version
+        run: rawbridge --version
       - name: Build package
         run: python -m build
       - name: Check package

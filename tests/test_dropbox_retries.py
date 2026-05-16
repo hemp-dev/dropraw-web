@@ -3,8 +3,8 @@ from dataclasses import dataclass
 import pytest
 from requests import ConnectionError
 
-from dropraw_web.models import RemoteFile
-from dropraw_web.providers.dropbox import DropboxProviderError, DropboxSharedProvider
+from rawbridge.models import RemoteFile
+from rawbridge.providers.dropbox import DropboxProviderError, DropboxSharedProvider
 
 
 class FolderMetadata:
